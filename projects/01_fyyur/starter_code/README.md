@@ -35,7 +35,7 @@ Our tech stack will include:
                     "python app.py" to run after installing dependences
   ├── config.py *** Database URLs, CSRF generation, etc
   ├── error.log
-  ├── forms.py *** Your forms
+  ├── forms.py *** Your forms 
   ├── models.py  *** Your SQL Alchemy models
   ├── requirements.txt *** The dependencies we need to install with "pip3 install -r requirements.txt"
   ├── static
