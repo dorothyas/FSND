@@ -109,7 +109,7 @@ def show_venue(venue_id):
       "venue_id": venue.id,
       "venue_name": venue.name,
       "venue_image_link": venue.image_link,
-      "start_time": show.start_time 
+      "start_time": format_datetime(str(show.start_time))
     })
 
   new_shows = db.session.query(Show).filter_by(venue_id = venue.id).filter(
@@ -121,7 +121,7 @@ def show_venue(venue_id):
       "venue_id": venue.id,
       "venue_name": venue.name,
       "venue_image_link": venue.image_link,
-      "start_time": show.start_time
+      "start_time": format_datetime(str(show.start_time))
     })
   data["past_shows"] = past_shows
   data["upcoming_shows"] = upcoming_shows
@@ -249,7 +249,7 @@ def show_artist(artist_id):
       "venue_id": venue.id,
       "venue_name": venue.name,
       "venue_image_link": venue.image_link,
-      "start_time": show.start_time
+      "start_time": format_datetime(str(show.start_time))
     })
 
   new_shows = db.session.query(Show).filter_by(artist_id = artist.id).filter(
@@ -261,7 +261,7 @@ def show_artist(artist_id):
       "venue_id": venue.id,
       "venue_name": venue.name,
       "venue_image_link": venue.image_link,
-      "start_time": show.start_time
+      "start_time": format_datetime(str(show.start_time))
     })
   data["past_shows"] = past_shows
   data["upcoming_shows"] = upcoming_shows
@@ -430,7 +430,7 @@ def shows():
     show_list["artist_image_link"] = show.artist.image_link
     show_list["start_time"] = show.start_time
     data.append(show_list)
-
+    
   return render_template('pages/shows.html', shows=data)
 
 
