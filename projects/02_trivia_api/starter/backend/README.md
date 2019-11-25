@@ -87,6 +87,91 @@ GET '/categories'
 '5' : "Entertainment",
 '6' : "Sports"}
 
+GET '/questions'
+- Fetches a list of questions.
+- Request Arguments: `page=<int>` as page number
+- Returns: An object with 5 keys:
+  - categories contains a list of categories.
+  - current_category that contains the category of current questions returned.
+  - questions that contains a list of questions.
+  - success that contains a boolean that indicates whether the request is successful or has failed.
+  - total_questions that contains total number of questions. 
+{
+  "categories": [
+    "general",
+    ...
+  ],
+  "current_category": "all categories",
+  "questions": [
+    {
+      "answer": "Kampala",
+      "category": "General",
+      "category_id": 3,
+      "difficulty": 1,
+      "id": 1,
+      "question": "What is the capital of Uganda"
+    },
+    ...
+  ],
+  "success": true,
+  "total_questions": 10
+}
+
+POST '/questions'
+- Adds a new question.
+- Request Arguments: None
+- Takes a json body:
+{
+	"question": "what is the capital of Rwanda",
+	"answer": "Kigali",
+	"category": 1,
+	"difficulty": 2
+}
+
+- Returns: An object with a key, message that contains a user message.
+{
+    'message': 'Question Added'
+}
+
+DELETE '/questions/<int>'
+- Deletes the question with the provided id.
+- Request Arguments: None
+- Returns: An object with a key, message that contains a user message.
+{
+    'message': 'Question has been deleted'
+}
+
+POST '/search'
+- Fetches questions that contain the search string.
+- Request Arguments: None
+- Takes a json body
+{
+	"search_term": "capital"
+}
+
+Returns an Object:
+{
+    "categories": [
+        "general knowledge",
+        "medical",
+        "history",
+        "entertainment",
+        "sports"
+    ],
+    "current_category": null,
+    "questions": [
+       questions that contain the search term
+    ],
+    "success": true,
+    "total_questions": 11
+}
+
+GET '/categories/<int>/questions'
+- Fetches questions from a particular category.
+- Request Arguments: None
+- Returns an object as POST '/search' above
+
+
 ```
 
 
