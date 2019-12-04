@@ -172,8 +172,31 @@ GET '/categories/<int>/questions'
 - Returns an object as POST '/search' above
 
 
+POST '/quizzes'
+- Fetches questions that contain the search string.
+- Request Arguments: None
+- Takes a json body
+{
+	"quiz_category": 
+	{"id":2}, # id of category
+	"previous_questions": [16, ...] # id of questions already shown
+}
+- Success status code: 200
+- Failure status code: 404
+- Returns: An object with 2 keys,
+  - success that contains a boolean that indicates success/failure of the request.
+  - question that contains a question to display next.
+{
+    "question": {
+        "answer": ...,
+        "category": ...,
+        "difficulty": ...,
+        "id": ..,
+        "question": "..."
+    },
+    "success": true
+}
 ```
-
 
 ## Testing
 To run the tests, run
