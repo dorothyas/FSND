@@ -178,7 +178,9 @@ POST '/quizzes'
 - Takes a json body
 {
 	"quiz_category": 
-	{"id":2}, # id of category
+	{
+	"id":2
+	} # the id of category
 	"previous_questions": [16, ...] # id of questions already shown
 }
 - Success status code: 200
